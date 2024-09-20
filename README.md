@@ -28,7 +28,7 @@
 
     <h2><strong>Perpustakaan Kota Medan</strong></h2>
     <p>Berikut ini adalah gambar Perpustakaan Kota Medan:</p>
-    <img src="logo perpus medan.png" alt="Logo Perpustakaan Kota Medan" width="600">
+    <img src="logo perpus medan.png" alt="Logo Perpustakaan Kota Medan" width="700">
     <p>Perpustakaan Kota Medan adalah salah satu pusat sumber informasi dan literasi di kota ini. Terletak di lokasi strategis, perpustakaan ini menyediakan berbagai koleksi buku, majalah, dan materi referensi lainnya yang mencakup berbagai topik. Selain itu, fasilitas komputer dan akses internet juga tersedia untuk masyarakat yang ingin mencari informasi secara online.</p>
     
     <h2><strong>Video Perpustakaan Nasional</strong></h2>

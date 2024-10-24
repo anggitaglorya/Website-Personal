@@ -1,0 +1,187 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perpustakaan Anggita Glorya</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+	body {
+		background-color: #BC8F8F; /*RosyBrown*/
+		color: black; /* warna teks default */
+		font-family: "Times New Roman", Times, serif; /*,mengatur menjadi font Times New Roman */
+	}
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        th {
+             background-color:#BC8F8F; /*RosyBrown*/
+            color: black; /* Default text color */
+            font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
+            margin: 0; /* Remove default margin */
+            padding: 20px; /* Add some padding */
+        }
+        form {
+            margin-top: 20px;
+        }
+      .slider-container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .book {
+            min-width: 20%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 0 10px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .book img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Layanan
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            	<li><a class="dropdown-item" href="formuliranggota.html">Formulir anggota</a></li>
+           	 <li><a class="dropdown-item" href="tabelpeminjaman.html">Tabel Peminjaman dan Pengembalian</a></li>
+           	<li><a class="dropdown-item" href="formpemesanan.html">Form Pemesanan</a></li>
+		<li><a class="dropdown-item" href="formperpanjangan.html">Form Perpanjangan Peminjaman Buku</a></li>
+		<li><a class="dropdown-item" href="pengertianhtml.html">Pengertian HTML dan CSS</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+   <main class="container mt-4">
+    <h1 class="text-center"><u>Perpustakaan Theresiah Blezinky</u></h1>
+    <h2 class="text-center">Pameran Buku</h2>
+
+    <div class="slider-container">
+        <div class="slider" id="bookSlider">
+            <div class="book">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIALcAeAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAQIEBQYDBwj/xABBEAACAQMCAwUEBwYFAwUAAAABAgMABBEFIQYSMRNBUWFxIjKBkQcUFyOTodEVUlVicrEzQqLB8JLh8RYlNFOC/8QAGgEAAwEBAQEAAAAAAAAAAAAAAAIDAQQFBv/EACURAAICAgICAgIDAQAAAAAAAAABAhEDIRIxBEETUSIyYZGhcf/aAAwDAQACEQMRAD8AxVFFFeafThRRRQAUUUUAFFFFABRRRQAUUUUAFFMlblidgcEKSM1qeL9EttKtrWS3t2geSaVGRrjtTyrjlzsMHfuzWpWLKaTSfszNFFFYMFFFFABRRRQBvOGOF9M1Lg241SW3ae/j7cRxLMyCUqAV6Hu39e+oXAPC1vxLZ6u0/OHjREtJVY4WUhyScbEYC9dt6zMGpXtuqR295PGsbl0VJCOViOUkY7yMils9Uv7CBoLG8nt4mcSFYnK5YdDtVOUdWjmeLLUql31/Bp+ANA0/WF1Marb801vLbxoj3DQchdmDDK5y22w8RjbOa5cJabpF7xTfabeWTXlpyzdi8kskToIy3cpG52Bz0xWct9Qvbdpjb3UyNNIkkpVt3dSWUnzBJPxpiXdyly9yk8izuWLSKxDHm97fzyaFJa0a8U25fl3/AIX3Dmm2OuWuqXIsXQxXFj2EMczv2ccsxWQZzlvZ7z067VY6dw5pN1xhrumXBaGztUl7FzI33JBABJzk4z39e+snYaheabKZbC6mtpCvKWicrkeFclu5lM4Fw4M6lJvb3kUnJDeOaOS1oJYslyqWvRZcXadDo/Et9p1svLFAYgBzFtzEjNuf5mPzqprpdXE11cPcXUryzPjmkc5ZsAAZPoAPhXOkk7ZaCaik+xGAZSD0Iwam3+qX2ohBfXLzBGLKGA2J61FjjkmkWKGN5JG91EUszegG5rrdWV3ZsFu7S4t2bp20TJn0yN6FYPjezhRRRWDDJ2KwSMDghCQfhXsXGvA9tfPocGjWcVnGZnW4aCMKEjK8xY+OOXAz3t5143c//Hl/oP8AavpfVNQttO0xLi9I+rM0UUhO4HOwQZHhlhnyzV8MVK0zg83JKDi4/wAngPFM2lSa5dNokCw6fGQkfISwflGC49T8+veas+KOD7rh/QtLvpgTJOGW6X/6nO6D5ZB8x51oLXh3h3SvpAkSXVLVLGzCzC2mfBSQ+7HkncDHN4j2QfPa8S3Wg8Q6Fd6c2safmVPu2NwvsuN1PXxAojjtOxZ+U4uCjdezJ8bGysvo301IraBLi9SBRIsYDbAOTnH8uPjWS+jy0tb/AIvsbW+tori3lEgaOVQynCMw29RXpI4RtOKOHtAfUbm5i+q2YCxxMuMsFyTsc+6KhRcLaZwvxlw3+z2naW5luA3ayZ9lYHOwx4kUzg3JP0ThnhHHKHvZXaxwxp+m8T6zrWr2yDQ7aKOSG3A5VmldAnIB/UM+rDwqibQNOH0WR6+tuV1EzlDIJXI5frBTHKTj3cDp59a9S4ng0zWEl0HVG7Ptrc3EUvNgryHdge7lyvqCfOsVwtaxcR8A6pwtZ3sTXFvcc0U3KQrr2okVsdcEhhWygrpGY80nFSbemv6O3DvBehXHBEOr31q8l09o83MZnUDqRsCB0xXPiprOy+i/TeS2gS6vYoE7RYl5tgGY5x3hcfGr7jW/tuF+B/2ZHKpuJLcWsCdC22GbHgBk/IVyt+E7TinhXh1r65uoltrNeVISACWVdzkH938zW8V+qXoRZLayTb42ecfR/pVnrfE8NjqUZkt2hkYoHZckDbdSDVxoPC+nah9IOp6RNC50+17QrGsjAjBUL7Wc95q8vtE0fgPXuH7+3mnHa3LxTNM+QIzGVJ6bYLKa1Gi8O/srifW9cmuIzFehDGOnZjGX5j06/kKWOP00Vy+Tdyi9Na/7ZWaNacP8M8bTabaRJbS3NlGYC7s3M3M/MMsTuRy7fy1lvpS4o0/W4otOsDMZrO7bte0jKjYMpxnzrpHp1p9I3G2rTtdyR2VokKwmIe1Kgznc9PaBII7jVn9MWmaaunQaiQkeomURqQcGZe/I78Y693xrXbg66Fx8Y5o8rbPJqKKK5T1hCM12lubiZSs9zPKp2xJKzD8zXHNGa0BWJZizEszHJJOSTSYHhRmjNYBcwcV8Q28EcEOsXUcUahERSoCqOg6VGvda1W/kikvNRuppIebs3aU5TOM4PdnAqvzXaG2kmgnmQARQKGkdmwBk4A9Seg8jTXJ+xOGNbpDXmllbmmlkkbBGXck4PUZNOtbm4tJ1ntZ5YZV6PExVgPDIrjS1mxqR1ubie7mM13PLNKeryOWPzNWdvxVxBbW8Vtb6vcxwRKEjRCAFUdB0qmXPLkjG+PjSjfpW20ZxjJbRN1LV9S1Xk/aV9PdCMkoJX5gueuKZJqN9JZrZyXty1qowIWlJTHpnGPKomaM1lsFCKVUSrHUL3TnZ7C6mt2cYYxSFeYeeK53V1cXkva3c8s8uMc8rlzjw3rjmjNFs2ld1sWikzS1hptvs9l/icf4J/Wj7PZj01KP8E/rW/fPLuPypF2b2cn4Uls4PnmYH7Ppf4mn4J/Wj7Ppf4kn4J/Wt/vz7ZyR4U18829FsPnmYW34ENveWsk18kkQnTnXsuoznHXvxj41Zarw/DfW40jTbqKBInNxcty8xldifDpjHw9kd1WHE9y9tpoCYDSzInl4/7f7VmbW4eC4iuo2MjpuGJ94HqPDcbeHyqsf1JyzSb2DfR+6KWfVIwoGSTEdv9VMPCDXTQQLdYKqQZfq/ICB/LnrkjfvyOvWtjNdQ3entNayqygqTg7rhgSGHccd1R5lkK5hlMUoyVfl5sEgjcHqN6nyrTJZvLmpIw83Cqi4lt7bUmnlgA+sJHbkAKcnGTsScbAb1Nn4Xs727jjsJDasWZXQguBgbnc5Hx8R5VZ8SaqdMjtLWOflvb6QxwyNHzktsCcfFfICs/wAR8bHSOJ0t7SzVltCBcy82WmJGeg29kMF8dj0qig59E4+bkc7fRZfZ9L/E4/wT+tL9nsv8Sj/BP61B0T6QJ7nUyjm2FrJIqpFIWVo1zjIKqQfTbGPOvR0dJFDIcgjI9KycZR7OuHlSn0zDfZ7L/Eo/wT+tH2ey/wASj/BP61u6KnbH+ef2YT7PZf4lH+Cf1ord0UWw+ef2KWJG9AJByKcQMAdPE0hC8wAPx7qwiAJz59BVdo+sWusxSS2jMQjlSGGCcEjPpkH5VYjlALE7jouKxmradLptz2iMexkdjHJG5RlJPMRtgj4dcfCnikxZNo1V/ZxX1nLbXKBopBg+R7j5Eda881S5teGmFjqdy/axqDG5iY9umThhyggEbAg/DzuX4i1CHTnt0ge4vB/gzexysMjZ8kYPUZA32rPca2C8TGDUrWaVL1YRG1s8f3fXubO3U+Ph1quONOn0SyStWuyw07WDFFFe2SK8dzHlo5F2lQePgRvj186t11KRMC1hSeAEBfvcFQBnDZGc9NiB3eO3mfD0t3pWuLp1/wA6K+VVSchSdwVPgenx8q2BYxzg2ilZmBzMhIG2xBODn0NPLGroi1zWzM8daze3+rWtubYW9xZM3ZtFKWZmYr5DHujFT+D+Cb3UZEvZOxe3JBdzJksf5SQQcg7kjr08a0Wk6ZHq3FFve6mizEqymRQQJHAHLnJwcKp6Du33r0O2gitoEgt0VIk91R0FM8ijGolcXjW7ZR6twvoDWMzto0R7OMkC1TkkbHcMY3pNIvX7SC31O3NhfMj9nZlg4ZAR7QI26d3rV9HLbtei2upzArdmqEYzJI5bCjY9yH51EeBhdrLMYJJVhCF4m5gG5mDjPiCBmpzT4WyrcedI7EoTsuBSZG+3pTaWuYcVsYFFJSUAOZidiT8abTwOY7sBv30BQd+YdaAGVB1jTjqVqIVnaB1bmVwobB8wetWIUbgsM9BvXC5uILSIy3MyRL0HMcZPl41qu9GOq2YO702/0zUTDc3aXMMkXMjLHylCDjB8c7/KmPL2ZAaSIZ6czYPwHfWwnhTWcJNZlbResk8QVnH7qA7rnvJA26eIpra1gsrueOCJY8u8ZKrjdWyM+ok/0mrc7WxMcOU1FPszWr6E+trG0Mc0VzFvHcMpQL0O4O5+A2plnYcQ6RIZNQWHVbFfeigb71R4gco5vMZOa2nlSn+1L8zqqO9eDBbvZlr3UdQvUjThWO5jnRuYtcxGOMY7gX3znHTbatnb8V2aQk6kWhkROdmRCyNtnbG4OO4/nUFSzN2nMwxkBcYFZjVpexunbtlRGckxgDLkFVAHljGdv+7wkpaoj5CeNcr2zfaBqVjxNplpq8MGFDv2PbAc8ZBKk7dDt8iPGu9nbxWSvb28YWJHJAHifabPick71g7WaaE9rYTPCJPfKOwVv/yCMnuzWitOIolHJd2/ZIB78OWBP9IGR+dZPapHOpX2aAHBoyN8juArlBcQzqrQypIGGQVYHauhIUEsQAOpNRHFJ2A+dFMikWVOdMkZIyRjocUUAPpKr9SOr28yT2MMN1bAYktmPZyHzR+h9Dj1quu9XtL2FhBeXdjerjNsyYkUjPvI3d13BwfE0yg2K5ItpGnubqS1gmMCxRq0kix5b2iwAXOwxyknIPUdK621hb20hlRC05GDPI3PIR4cx6DyG1U+kXwnkdbq4CXs20YJxnlzgL3EkHcb9O/arGS8uy0ccUCCR3Ks7hgqYBOeU4z0xgN39ayUZdIny+yXco8tvIqEq2PZPmOlUeo27FmvI4+V5inbFjyiNlBCv/SQcHwBPU1YvphusfXLie4wchAezTPouD8yaZdQi0RncmSzYe3zMWMP+5TPUd3UeRBJA0+ynt7yO5hEkKuSR7SEYZD4HwNdQpJDFiPIdKmSaMpVzBmNhjs+ZuYKOp5Cpzg9+ds74NUrxa4L1ba3WJAx5Q93GTg9dipUMMdwGf703FS/U7sfmqvzRJ1G/ttNs5bu8kEcMQyxPf5DxPlUXQtDt9XS7uNQty0chAUkkHm67Efu5I27y3nSzcG3WouTrF9HOv7oX2QPAL0H/M5rXW0MdtCsMIxGmw/U+e5PxrbUFp7I5sjzPqkjGS8K6hpzF7KVL6Eb4l9mVfTAw35elcZlSBSWmjwpAILcrKT3FTvW+L5zkDeuNxb291GUubeKZCMFZIwwI8N6FkvsjwrowEgiA7dkDFRkMvvfA+NbCyinh0W0a6l7WdlBd5HBEfmASMnwJrrDoGkQSiWKxgVlxgbkD0UnH5VPSOMHKIit48uK3mgUWcLOVZrdHRAqH3cHOf8AhzRUh+45zRUn2OugLZGMHy3qBq2l2+qwos7SJLG2UljIDL4gEiomt8S6bo0hgmla4vD7tnaqZJSf6R0+NV4l4u1Y5hitNEtT0M330/yHsj400Yy76Fco9dlfqfDOoWtw1xBJPqVoAPuAV7UYI6qfZcehUjzq74anhuo9tTluLiIe3by7PDnplWAcbDHtVEbhG6nPNd8V668njBMsK/8ASFNQNU4K1SUJJZ8Q3EtxEPupLwDtE9JV9oD5+lW5RkqbJ1JO0jcBiPdNHSsFBxTrnD0iW3FunvJCdlvbcA/PHsn8j5Gtda6zp97YtfWlzHNboMsYzkjyI6g+tRljlEpHJGQsHLp9zHalgLackW4Le43XswPDAJHhuOnLUu6t47qB4ZchW/zL7ykHIIPiDuPMVUKy6iGmuZQbflP3UR3jBBBVx1365GMY28Sy71yUXa21iHuLhhnsyFG3jvg48yR8axwbeuxHJFpZTvKjRzkfWITyS4GAe8MPIjB+Y7jUkDOfAVGtIZU5pblla5kVRJy+6MZwBsNhk9fGpgGUPX51j7Kp6OdFOYjAAHdvQCobdcj1rDRKKCaSgBaSiigCv0bQtM0NXXT7ZQ7H2539qSTzZup61Zcw29kUlFM232YopdCswJzikyN9uvSkopTQnSG4heG4hSWNxhkdQwI8MGsBrvBM1hcvqXC7SJn/ABLNZMEjwQ9/f7LZH9q9ApKeOSUehJwjLs8w0mbt7eS4JuJTAf8AFt1KzW/is0IPMMn/ADJkbA4GDWg4VueaRJ7NJbuGYle3PMSoJycsdtsDY7/GrDXeG/rdyNU0ecWGrxD2Z12WYfuyD/MMbf8AiqrTJLbVNQlhkEmgcSxbypDhVn297lPsyrj4jx6GruSlHRGnF7NpS1Rfta+0sqnENpiM7LfWal4T/WvvR/mPOr5lK7n5d9c7jRdSTG0tPI/kb5UgGDkq3pilGG0lOKnuU9PCnADbKN8BQAykpzAjuIooAbTiuFzkbedJTyRyYzv6UAMUZYDp504puBkb0gO4px5eYYO3pWgO7CRpFjQczOMqPLGaEtpXRHRchzhdx5/oaf8AW3SRHjCcyryhuXfGKPr022OXCtzAY6Hf9adKBO5jHt5o1ZmTCr1bO3d+oqo17hmLX7aMsHiuI2xb3cRxLE2R0PXHiKufrEkrMsnKVkZS3wpUupkiCrjlDcwONwRvQuKdoHya2Z/QJdcgM1lxDaDtoDyrfREGG4UqzA9djyjfuz61emGXkYlMcgy2/ln+1MvS1/ZXVlP/AIFzEY5VUYypXGBWVm17WuF5pI9bhF7o0nKsd5bw+3bgKF+8X0A3Hn44FKhN6F/OK2auaCSBgsq8rHu2rnQmpx6vFHdQzxTxsPYeIgg70uDtsd+lQdJ0Vi7VsVsZ2GKbS70EEdaw0Sig4VSzEADqT3UVtP6C0FFFFYAUUUUAFFFFAD02YHw3puT07qKKAF5jnOaa3tAhtwRgg9CKKK0KMxccJfVJ3u+GL19Knb3oFGbaT1Tu+HypkvEev6PH/wC+aLFKVG89hcLynz5XwaKKrB8tSIzXHcSFF9JmnzuEg0vUWc9AeyH589Tv2xxXqUYfS9GtLMHcTX1zzAD+mPeiiqOMYq0hVKT02H/pW61J1fiXWrm9Ub/Vbc9jAfUDdqWiiofJL7K/HE//2Q==" alt="Kartun Kalkulus">
+                <h3>Buku 1</h3>
+                <p>Judul: Kartun Kalkulus</p>
+                <p>Pengarang: Larry Gonick</p>
+            </div>
+            <div class="book">
+                <img src="https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//112/MTA-7917889/ghalia_indonesia_pengetahuan_dasar_kepustakaan_-_sisi_penting_perpustakaan_dan_pustakawan_full03_r5tagqxk.jpg" alt="Pengetahuan Dasar Kepustakaan">
+                <h3>Buku 2</h3>
+                <p>Judul: Pengetahuan Dasar Kepustakaan</p>
+                <p>Pengarang: Wiji Suwarno</p>
+            </div>
+            <div class="book">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIALcAeAMBEQACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAABAMFBgIBB//EAD8QAAIBAwMCBAQCCAMHBQAAAAECAwAEEQUSIRMxBkFRYSJxgZEUMgcVI1KhscHwQmLRFjNydaKz4TRDRHN0/8QAGgEBAAMBAQEAAAAAAAAAAAAAAAECBAMFBv/EADMRAAICAQMCAwcDBAIDAAAAAAABAgMRBBIhEzEFQVEUIjJhcYGhkbHBIzNSctHwNENi/9oADAMBAAIRAxEAPwD47UAKAKAKAKAKAKAKAKAKAKAKAKAKAKAKAKAKAPlQB8qkgKAPrQnIVACpGQqCMhwO9CT0gg4IwfQ0B5QBQBQBQBQGz/R1cyKurwbgY0tGnVWGQrjjI9+32rzfEVxW1/kjbon8f0ZU28f6tmTU9deVr04litFYiR28mkP+Bfbua0ybsWyrt6/8epxUVB77O/oK6l4h1O9u1vZJxHLDloREgVYzjyH+ua6VUQrjtS/UpO2U5ZZe/pGvriDX4Vt5WiWCCOaMJgBZDn4vnWPwyKdLcueX+ho1rfUWPRF/4uhj1TRNRjRF/Faa0UwwMEoyAnP/AFfYVm0knXbFvtLK+6fBo1EVOtrzjj9DC+GYon1iKa5Gbe0VrmbP7qDI+7bR9a9LUykqmo93hL7mChLfmXZcl34/vbkXWlPHIYy1nHcAJ8IEn73zrP4fGO2a/wDpr7HbWN7o/RHf6QLuWS20SPcQk1ik8ijgO5xycedV8Pj71r9JYLaxvEPoUnh0C2a81WSJJFsYcosi5VpXO1AR5jkn6Vq1HvKNX+T/AAuWcKFtbs9P3H/HsETalb6tagi21SFZk9mAAP8ASuWhm9jqk+YvB01UVuU49mjMVtMoUAUAUAUBr/0cO8d1q8kZw6aexU+hzXm+JJOFaf8AkjboW1KbXoF7aweL7J9V0uNYtWiXN5Zqf97/AJ0/v29z0hJ6WSrm/c8n6fJlZRV8d0fi81/JjpPyP8jW4yGq/SQpbxGo/etIh/OsHhnFD+rNet/uL6IvmvFtv0jS2c3Nvf26W0intynH8ePrWVQc9DuXeLb/ACaHNR1O19msfgy15ZPoWj6hBNnr3Vx+HT/6ojuZvqSg+lb42K6yMo9ks/d9v5MkodKuSfdvH6D36Q1w2jN66ag/lXHw/wD9n+zOmtXwP5B48H7Lw9/yuP8AkKjw/vb/ALMnWdof6kIlsdL8OWltqFhJdPfsbtlS56RVR8MefhOeNxrqlOy+UoSxt47Z57spmNdSjJcy57/oWEz2mu+B5ksbaSB9IkEixPN1W6bZJIOBx+bj/LXLEqdWnJ5U1j05RdtWadqKxt/YxVeiYgoAoAoAPHehBe+Gdfh0NLrNk1xJcoY3YzbQE9AMd+9ZtRpuvtzLGHk7039LPHfgrbS/ew1FbzTGaBom/Z/Hu2j0PbI8jXecFOO2fOTnGTjLdHgs9a1jS9WvFu30hoZXI6/SuMCTjyG3g9ua400zqjs3ZXlwdLLIze7bg613XrTWb+3vZtOeNo8I4Sf86rnAHw8HJ71XT6d0QcFLPn+pNtytkpNC+v60uq6nHqUFu1rcrtJIl3crjaRwMYxV9Pp+jX085XJW67qT34wdeIdabxBqMV9PZsluiBTHG3B5yxDY7mo02mWng4J5/wC/wTdc7ZbmibXvEFpraWYk094zaqIlZbjO6Mdx+Xvx3qKNM6XLEu/P3JuuVqWV2Ota1+y1hbJJtLdfwkYjG257xgYwfh9cc1Gn00qXJqXxc9vMW3K3GV2FPEerw6xcxXEVobZo4xHt6u5doHwgDAx51fTUdGG3OfMrdb1Xuxgm8Ma/FoYuT+DNy9wnTYdXahT5YPPv71XU6frpe9jHJai7pZ4zkpZ2hedzbRmOLPwxs+4qPTPnWlZ8zhxng4oAoD3FAWvhW4ltvEenGJyoluYopAOzIzqCD7Vw1KzTP6M60PFsfqXHiPxNrFt4gvre0uxFDDMURFhjOAPmuazaTS1Sog5Llr5nfUX2K2UU+zG7V4PGei3wubWCHWLKPqJcRIF6q88H7EY9wRVJuWkti08wk8YfkWjjUQlle8jHadZtqF7bWseQZ5FTI8ge5+2TXoWTVcHL0McI7pKJr9fkg1zwvLcWcSRfqq8aMKigboDwrfbH2Nefp4yovSm/jWfubLmram4r4X+Cr8D6XHqWo3Bljimkt7dpYbeX8sr9hn1AOOPcV211sq61h4y8N+iOWkgpzfnhcL5nreK/EthdbbmbYVPNvNbIE+WMDj61b2TTyjlL75/kj2i2L5ZU63ejUtVur1I+kkr7lTAG0eWcedd6q+nBR74OVk98nI2Ph+O3/B/7Mywqs9/p7XDylRuErcqn0UA/SvOuct3tKfEZY+3n+TdUo46LXLX58jCJLcWU3UidobiEnDKcFWGQf616uFJYPO5izc+Ote1HTtWhgsbhbeNrVJGURIcsc+oPpXk6Ciuytyms8v1PQ1V0oTSi8cIX1q6GseB4dT1GGKO+W7MUMiIEMq+f9fb4a61J1at1Qfu4y/kylj6mmU598mLwa9ExBg0BNsoB7QFxr+lf/ug/7i1x1H9mf0f7HSn+7H6om8VIf9pdV4/+S1V0f/jw+iLaj+9P6lv4Kf8AAWGuanNxDFbCJSTwzt2X59vvWbXrqSqqXdvP2R20r2RssfbGBDwukVjDearcxs8VrGIkCnaWkf4eDg4wuefeu2qzZKNUX35+y5OdGIKVjXbj9S48I3WkT3lxpMGnzW66jA0LNJc9QHAJAxtHPeuGthbGCtznZz2OullW5OvGNxl4ob7T9Rl/CtJHdWhcs8ZwVC8E/wAvvW9uE4rPaX8mVKUJcd0aC28aSTKkHiKytr+27SO0WJAvr6fwFY34fFPdRJxf4NEdW3xYk1+SLWPDcEfjKPS7P/0suyUg87EOS30wD/ClWrb0vVn8S4+4np0tQq127/Y9OvaQNcGqDTLrrLMJFkF5xxwPh29seVWWms6PT3LtjsQ76+r1Nvn6i3j7TVs9bnlhH7C7j68ZHv3/AI/zq3h9jnUlLvHj9CuqgoWNrs+TSeIdWtLHxHaRanp9rPZm2j3yPDmRODyD5genzrDpKZz08tkmnl/Tuar7IwtjvimsIzvjW01O31GP8bcG4tXXNnIoCps9AAABjj5963aN1yg9iw/P6mbUqal7zyvL6Ge2VrMwbKAY2UA5pNzHp+oQ3clv1zC4kROps+MEEE8HPyrnbDqQcM4yXrmoSUsZwWV/q2lahdSXVzoBM8jbmdL91yfkBiuNWntrgoRs4XyR0ndCcnJw5fzYhqOpTXkEdrHFHa2cRLR28OcAnzJPLH3NdK6Iwk595PzZSdrklHsl5DE2qW76Eulx6eUCydUS/iDkvjGSNvIx5VVUNXO1vyx28iztTr6aQjpk62N/BdtEZDC4dVV9nxA5HODXWyG+Lj6nOEtslL0LxvE8Z1S4vRo1uRdR7LmOSUt1Bx24GO3PBzx6VlWjxXGG9+72/wC+Z3epzNy2rnuKtf6EkizW2gOJQdwWW8Zowf8AhxyPbNdHVe1iVnH05K9SpPKh+WdWfiAx3N5d3tobq7u0aN5ets2oQBhRtOOBjNVnpIuEYQeIx5wTHUPdKTWWyjKLuOxMJk4XPYema1mcvdR1u01HT7SyudKYx2ihImF0d23gYJ288CstWmdVkpxlzLnt5miy9TjGLXb5kPiLWI9bljmNiIJkUJuExYFRnAxgetTpdN7PFxTyit93VluxgktNcVdEbSdRs/xsCtugJl2ND7A4P9k0npv6qtg8Pz9GTG7+n05LPp8ijKDJx28q0nANlAM7KAOnQElvbiWQrnb8JOT24BNSlngDD6ZIpbDpheck9xjP24NXdbB42nHYCJF3A7W5OAdxXHb1FRsBwbBwM7kOTgc+eM4+1NjB7FY9dI+i4ZjwxJGEJ4APmPLywaKGUsAP1e3SDGRMk8d8EYB4P1psZB1+rnKZVlLFiOMnODg449c02MkDprqcGSM9iMMeRgn0/wApp02D06aQHHUXem7cPIAbT6ejVPTZBxLYPHGHLJ2J7nnGSccelRsaJFunjvVAHToA2UAz0/agDp0ABCpyOD7UB2WlK7TI+3tjccf3/rU5YO+tNgDqSZBzu3Hd9/771O5g4BkUECRwD3G4+mKjLB6ryoAFlkGPygMcCibQPCZCu0u5B7gsSKZYAtKTkyyEjzLmmWAZ5DyZGJ8iWNMsHQml2lRKxz57jkdu3p2H2qdzANLJINpkOMYIB/NyTz696hyYIun7VADp+1AGz2oBrp0AdOgDp0AdOgDp0JDp0IDp0ACOgHbDRdR1FS9jYzzoDgukZKg/PtR8A+peDLPTvDmm9O7t4RqL/FNI+GOf3QfQe3nXSiKu4g+UZLNXGtvcc6dp51u+1GOOygitZcM0kkIHJHy5zV9fp47I9N+95mLSWXXzlniPkd+OoLK5to9Jt7GFpzjp9KIKfmMdq7aaiDg52PgtrdXOE411cyPk13Yz2c5huomjkXyYVhUovsz1ItSWSHpGpLB0TQDXT9qA86ftQHvT9qAOl7UA/oun/jL+ONoi6E474rZpKI2KUpeRi1eqVLjF92M+JtGGl6qbdIZIkKK6q/PB9D5jis9sYqXumqttx5KoQHHauZclttPmu7hLe3iaSWQ7VVRyaceYzg+uWWqwrpQsLaFkjhj2siD8gHma2WaWOOX37HlR1+9NJdu47eX0DaQ4tYEKlSM4HfHnWddPTWJTeDrZYrKXsR1bW0VvZLdT3LS3YjwzocKT8qiNEeu5wXD/AGLRShVmTy8Gd02EX+s2t9cXbYWV0dAORwQBn05FatZqFBezOPfz/J5+lq6lqulL14E/0iaVZO0U1pvEqghgWyCK4U6NKuUkehLURqtjBLKZhxae1cTcdfgz6UJPOgaEHotzQHYtvWgJv1fP0lkWB2RuzBePvVpxcOZIqpxfZj2mdfTyt1b4l2El8dh/r9K26DU17XTPjPY8bxKiyViur7o1148Hiq3gS8t0iuAhEcqnlR3zn0rzb7oe0OFWWka9LqZzit+EzHfq1hwVIPpirw/qfDybnOKWWzZ+EtKsrWxlmnjYXhz+0YcxDywPLP8AWqtRn7meTlOxcouZZdOHTjtoxvZv23TAywPcs1JxcpRri28HDdUlwu/cdjOnRy4SFFVUwFx8I+QrtLTuUt8uWXjKqLwkVOpMLvUUgRulC3B2DHv/AErWpdGpy8zNZHq2YXCIBHFYaSYIeZeoX6hxn+8Vyot9ol1JLsJQUK9kSu1uyLQRSLI0m4AHPlxVPbZNyhg616WO5Nspf1efSuB6B6NPPpQFYIBUEDNtao8yLJwhPNc7ZOEHJFZtqLZbaN+q11uWK8jjWEfAEYZBGO5z617GnqUtHGday35nz8tXL2v+rLERXxGwsdQurKxKSadkNEqtnHAJB9gaz3WqVW2XxeZ7NdeZbo9vIqrSYuxjucqCMA+nyrLDEXlGjasYLPRNDvIXDTzo8C/k2E5Ye48q9G/WRnBqK5Z51Hh8a7N78ifUJo9M1Wzac5TbuAzzkHn+lW8Nrj057VhsxeLRcbYTxwjVT31tqhtbi3bpwbdsxII3emP4815Ot0s424z9T0aZLUQU4rCLWLTIIoSY8GOQfl/d+VXi5RjGMVjB16MVkhlsI0U7ZGLeR9q6y1Ek+xXoRwQR28URaRvjcjAz2FWnPesPsWjWo9iL8OrndKcjOdvrXN2bPdgiyq82cXgSXgIMe1VSjFPguo8iRt1qh3POivkKjIwZRxtGakjAnNqIjU4XkUIJdLD6hFeu8e9o412E91y2K6V2TqWK3hHCzTUzeZRTNBYaOJEzKB/w4qjbbyzskksI4bRiJzvTESDJY9gKtFNvCIk0llljp9pc3lm8mlcxR+UpxkeortfQ6PiZk02sjqU3BPCKDWtOu7m6V8tFc2ynJxkFe9KNZ0YN4yi99SmtyfY2Hh3RyljtuHaV0kYHd86zu52ycsYOlKxHBoNhAx/hHerb+C2zkglXjvxUby20XfGPyiq5ZbaLuwxioyTgWc81GScETEUJIWfnigMtgGpKit3pyGMEebCmQ0abwvBEJZrOBNzSKA5Hl5jmrvT3uPUxiP7mCWsXtHRj3ReWkXTkZZFwQcEHuKomb12GdR6EunXcChWkkgdVXOMkqcCutUts0znbFTg4+pi/BOsaq0j2VrHjCMZVdT+zwP4c163iCrlU5efkeDoaNRVPbF8Fqup21mLm3vN0l5NFsVEGdue2fSvJ0/h9llbin9z0dTqa9LXiXLZsNNOyFTIu1riR3T684/hXJ19KW35mmie6KbXcnlJ7CpNAnKzHgjijJFZMnsKqBaTPpQEDDjlaEkD88CgI2HHPFAZVT8ePKpII9RmlSyaSGMsI8FmAOFHrXbTQjOxKXY5Xyca24jHhrVrq2ujNp6icN8TbiOCfWvZ1EqVWo2PGOx8/Xp9Qr3bRzk+gTsl1E90hVtwyzxZ+E+jL3+orwJNZ4PollLnuZdpZTdlN3xE8c96tFMNo1OkM1raSG5YLlfPzqQZC+0OXVdaN3pVxGsjKA6y8LkdiCP8AStul8QVa2OOV6nl67Q+08xeGbbRLDU4raJdWnhdojlEhyR2I5J79/SuGqlVZNOCO+jpurji2WSxdeazm8VdT6UBA0bHjt70wSLSwEN/vKgEMsD7Mq4NQBPHxEOn1oSQzBsfDyPQ0Bj522ruzgDzqSpWapq9zqSxwqR0o8ARou1ePPjzoQy00W7EcYQrt9Rikm33JSwaWyuypV4pMH2NVJ7lZeHo+JRPcTbYJghXaMbQOCPvz9a9zQbZUNJco+e8VnZVdFZxFmm8Rvby2ds1pc70ZcMinPIryrq5RniR7FM4WwTi8iHhuxuvxPU2sq+WarwjtjHY3iHAAz5VBJ64zzQkiZeOKgELRFgc8UBAYI8Hcc1BIobcYbY30oBAO3VKSLx61BIreK0b7kPHpQGHeMzvtdvh9Kkqe21pFbShgBtzQYLB7eOTBUAH1qCcCF5cXFofgPHqKlEMdtbxdVRILiHftOdx42mjndXzVLDM+pojfDazT6ZDHbIq9NML+UL5VSMrZNytllsnTadUx2pF7b3I/w7R7Gr5NA6l0APj7+tMg7/FI3G7FMkHvWXGBIKZBFIykcyZPsaZJIJEwhIbJNAImU2sZZ+5oDgtvh6h7moJK6GVpWbd2zQGLY4lxjHvUkDDjMdAS2rk8EdqgHF/CXjJAz7UDDRoirZKlfpQgv45mjxjkVBI7FOr9iVPsakkYW5lj7HI9zQE6agjfC/8AChBOGSRfh+H50AvJIYj+zLM3oe1AewXDLzO4z5KKALwrIN8rAKOcUJFo7kTAhBhO1ALtJFGxRe570Bi5zILhQFBXHepIGf8A2u+KA5txtblwagDrspTngetCTixnhaQrHOrsO4B5FCCyzxUA8SUK3c/ahI/FKCORn51IOXdh2ZE96AmtZRxmXefagGZ5HZSFYL6mgF7boo5O8yP6+lAdXZ6o+NsJ6UBHuVItsVAJxwiORpGJLGoBk7troXirEg6fmxNWIHRhomV/MY4oCOyhhic9I5PnQInvpWS2dCjNvBAIBPNQGJ6XDcPPCzPIEU/laBECjHYEcnmgLJrfUQo2XiYBBHw/fOaAEt9T2rm9UMpJJEY+Lkf+fvQgZjW8jjfrXiHIGDsxg+dCcC69aWQBbwPyM4ioB63gvRC6NeKN3IdUAKnI/oDQB+Fu5J1N1fLJEDkoECk/agH12wpiFe1CRMwzSy755vg8kFAeXd+lqoULknsoqAexSPJGGcbSRnFAZxrhH2uMncKsVO3RZoHTJXcMZHcUBHYWiWhJQszHzY0JRNeagLYKHQsWPlTAyO2Mv4mFZNu0HyqGSdTwTyuOnPsXzG2gGLdDEMOxc+pqCAlvIY2Kvn7VJJPbyJIgaNcA1APJ0klXakzRj2oDi2tlt+d7u3qxoCO51Tpy9GMZcd/SpIGVd2QFu5qCTkhSclQT6+lCDmRm2MV5OKA//9k=" alt="Kimia Dasar">
+                <h3>Buku 3</h3>
+                <p>Judul: Kimia dasar</p>
+                <p>Pengarang: Hardjono Sastrohamidjojo</p>
+            </div>
+            <div class="book">
+                <img src="https://store.penerbitwidina.com/wp-content/uploads/2022/11/WhatsApp-Image-2022-11-04-at-10.51.53.jpeg" alt="Bahasa Indonesia Untuk Perguruan Tinggi">
+                <h3>Buku 4</h3>
+                <p>Judul:Bahasa Indonesia Untuk Perguruan Tinggi </p>
+                <p>:Nurul Dwi Lestari,M.Pd</p>
+            </div>
+            <div class="book">
+                <img src="https://s3-ap-southeast-1.amazonaws.com/ebook-previews/69199/235354/1.jpg" alt="Buku Siswa Bahasa Inggris untuk SMA/MA Kelas">
+                <h3>Buku 5</h3>
+                <p>Judul: Buku Siswa Bahasa Inggris untuk SMA/MA Kelas X</p>
+                <p>Pengarang: Aris Widaryanti, S.Pd., M.Hum.</p>
+            </div>
+            <div class="book">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHwJsDhN56nAWe_3zi12-G5wxy7HZLNgtQ6A&s" alt="Sukses Belajar Bahasa Jepang">
+                <h3>Buku 6</h3>
+                <p>Judul: Sukses Belajar Bahasa Jepang</p>
+                <p>Pengarang: Muryani J. Semita</p>
+            </div>
+        </div>
+        <!-- Tombol geser kiri/kanan -->
+        <button class="prev" onclick="slideLeft()">&#10094;</button>
+        <button class="next" onclick="slideRight()">&#10095;</button>
+    </div>
+</main>
+
+<script>
+    let slider = document.getElementById('bookSlider');
+    let scrollAmount = 0;
+    let bookWidth = slider.querySelector('.book').offsetWidth;
+
+    function slideRight() {
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        if (scrollAmount < maxScroll) {
+            scrollAmount += bookWidth + 20; // 20 untuk margin
+            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+            slider.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+    }
+
+    function slideLeft() {
+        if (scrollAmount > 0) {
+            scrollAmount -= bookWidth + 20; // 20 untuk margin
+            if (scrollAmount < 0) scrollAmount = 0;
+            slider.style.transform = `translateX(-${scrollAmount}px)`;
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>    
+</html>

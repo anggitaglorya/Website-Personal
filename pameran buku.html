@@ -1,33 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perpustakaan Anggita Glorya</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Perpustakaan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
-	body {
-		background-color: #BC8F8F; /*RosyBrown*/
-		color: black; /* warna teks default */
-		font-family: "Times New Roman", Times, serif; /*,mengatur menjadi font Times New Roman */
-	}
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 8px;
+         body {
+            background-color: #BC8F8F; /*RosyBrown*/
+            background-size: cover;
+            color: black;
         }
-        th {
-             background-color:#BC8F8F; /*RosyBrown*/
-            color: black; /* Default text color */
-            font-family: "Times New Roman", Times, serif; /* Set font to Times New Roman */
-            margin: 0; /* Remove default margin */
-            padding: 20px; /* Add some padding */
+
+        h1, h2, p {
+            text-align: center;
         }
-        form {
-            margin-top: 20px;
-        }
-      .slider-container {
+
+        .slider-container {
             width: 80%;
             margin: auto;
             overflow: hidden;
@@ -73,49 +62,214 @@
             height: 200px;
             object-fit: cover;
         }
+
+        /* Adjust slider buttons inside the container */
+        .slider-nav {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .slider-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        /* Styling untuk tombol */
+    #searchBtn {
+        width: 100%;
+        padding: 5px;
+        background: linear-gradient(to right,#e934e0, #7424db);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    #searchBtn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    #searchBtn:active {
+        transform: translateY(0);
+    }
+
+    /* Styling untuk hasil pencarian */
+    #searchResults {
+        margin-top: 30px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .book-item {
+        padding: 20px;
+        border-bottom: 1px solid #eee;
+        transition: all 0.3s ease;
+    }
+
+    .book-item:hover {
+        background-color: #f8f9fa;
+        transform: translateX(10px);
+    }
+
+    .book-item:last-child {
+        border-bottom: none;
+    }
+
+    .book-item h4 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .book-item p {
+        color: #7f8c8d;
+        margin: 5px 0;
+        font-size: 0.9em;
+    }
+
+    /* Styling untuk datepicker */
+    .ui-datepicker {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+
+    .ui-datepicker-header {
+        background: linear-gradient(to right, #3498db, #2ecc71);
+        color: white;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .ui-datepicker-calendar th {
+        color: #2c3e50;
+        padding: 7px;
+    }
+
+    .ui-datepicker-calendar td {
+        padding: 5px;
+    }
+
+    .ui-datepicker-calendar .ui-state-default {
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        text-decoration: none;
+        color: #2c3e50;
+    }
+
+    .ui-datepicker-calendar .ui-state-active,
+    .ui-datepicker-calendar .ui-state-hover {
+        background: #3498db;
+        color: white;
+    }
+    /* Responsive design */
+    @media (max-width: 768px) {
+            .custom-column {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-control, #searchBtn {
+                padding: 12px;
+            }
+        }
+
+    /* Animasi untuk hasil pencarian */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .book-item {
+        animation: fadeIn 0.5s ease forwards;
+        opacity: 0;
+    }
+
+    .book-item:nth-child(1) { animation-delay: 0.1s; }
+    .book-item:nth-child(2) { animation-delay: 0.2s; }
+    .book-item:nth-child(3) { animation-delay: 0.3s; }
+    .book-item:nth-child(4) { animation-delay: 0.4s; }
+    .book-item:nth-child(5) { animation-delay: 0.5s; }
+</style>
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Layanan
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            	<li><a class="dropdown-item" href="formuliranggota.html">Formulir anggota</a></li>
-           	 <li><a class="dropdown-item" href="tabelpeminjaman.html">Tabel Peminjaman dan Pengembalian</a></li>
-           	<li><a class="dropdown-item" href="formpemesanan.html">Form Pemesanan</a></li>
-		<li><a class="dropdown-item" href="formperpanjangan.html">Form Perpanjangan Peminjaman Buku</a></li>
-		<li><a class="dropdown-item" href="pengertianhtml.html">Pengertian HTML dan CSS</a></li>
-		  <li><a class="dropdown-item" href="pameran buku.html">Pameran Buku</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-	<main class="container mt-4">
-    <h1 class="text-center"><u>Perpustakaan Pemko Medan</u></h1>
-    <h2 class="text-center">Pameran Buku</h2>
-
-    <div class="slider-container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">PEMKO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pameran buku.html">Pameran Buku</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Layanan</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="formulir pemesanan buku.html">Formulir pemesanan buku</a></li>
+                            <li><a class="dropdown-item" href="formulir anggota.html">formulir anggota</a></li>
+                            <li><a class="dropdown-item" href="Tabel Bahan Buku.html">Tabel Bahan Buku</a></li>
+                            <li><a class="dropdown-item" href="Pengertian HTML dan CSS.html">Pengertian HTML dan CSS</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="custom-column">
+          <h1>Pencarian Buku</h1>
+          <div class="form-group">
+            <input type="text" id="bookSearch" class="form-control" placeholder="Masukkan judul buku">
+          </div>
+          <button id="searchBtn" class="btn btn-primary">Cari</button>
+          <div id="searchResults" class="mt-4"></div>
+        </div>
+        <h1>Selamat Datang di Perpustakaan</h1>
+        <h2>Pameran Buku</h2>
+        <p>Klik tombol di bawah untuk melihat lebih lanjut tentang buku kami!</p>
+    
+       <div class="slider-container">
         <div class="slider" id="bookSlider">
             <div class="book">
                 <img src="data:image/jpeg;base64,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==" alt="Sejarah Dunia Kuno">
@@ -154,36 +308,91 @@
                 <p>Pengarang: Dr. H. Arif Sumantri, S.K.M., M.Kes.</p>
             </div>
         </div>
-        <!-- Tombol geser kiri/kanan -->
+            <!-- Tombol geser kiri/kanan -->
         <button class="prev" onclick="slideLeft()">&#10094;</button>
         <button class="next" onclick="slideRight()">&#10095;</button>
     </div>
 </main>
+<footer class="u-align-center u-clearfix u-container-align-center u-footer u-grey-80 u-footer" id="sec-0dd5">
 
-
-<script>
-    let slider = document.getElementById('bookSlider');
-    let scrollAmount = 0;
-    let bookWidth = slider.querySelector('.book').offsetWidth;
-
-    function slideRight() {
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
-        if (scrollAmount < maxScroll) {
-            scrollAmount += bookWidth + 20; // 20 untuk margin
-            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
-            slider.style.transform = `translateX(-${scrollAmount}px)`;
-        }
-    }
-
-    function slideLeft() {
-        if (scrollAmount > 0) {
-            scrollAmount -= bookWidth + 20; // 20 untuk margin
-            if (scrollAmount < 0) scrollAmount = 0;
-            slider.style.transform = `translateX(-${scrollAmount}px)`;
-        }
-    }
-</script>
-
+</footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>    
+<!-- jQuery Library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $("#changeTextBtn").on("click", function() {
+      $("#jqueryText").text("Teks telah diubah menggunakan jQuery!");
+      console.log("Button clicked!");
+    });
+
+    // Data buku contoh
+    const books = [
+        { title: "Sejarah Dunia Kuno", author: "Susan Wise Bauer", year: 2010, sinopsis : "Apa yang terlintas di benak kita ketika membaca ending sebuah buku seperti di atas? imaji yang terlintas adalah sebuah akhir yang tidak biasa untuk sebuah buku sejarah, tidak datar, tidak monoton, tapi menyimpas sebuah kekuatan pamungkas dari peristiwa kronologis yang luar biasa sebelumnya, sekaligus menjanjikan sebuah babak lanjutan yang lebih memukau. Ada kesan kepuasan, pemenuhan (Accomplishment), dan pencerahan dari babak yang baru saja kita lewati. Sebuah cara mengakhiri tulisan deskriptif yang sungguh hidup seperti ketika membaca buku fiksi." },
+        { title: "Buku Bahasa Indonesia (Pengantar Dasar Menulis Di Perguruan Tinggi)", author: "Nina dan Ahyati", year: 2018, sinopsis : "Definisi bahasa adalah sistem lambang bunyi ujaran yang digunakan untuk berkomunikasi oleh masyarakat pemakainya baik secara lisan maupun tulisan. Bahasa Indonesia adalah alat komunikasi yang penting untuk mempersatukan seluruh bangsa Indonesia.  Kemahiran bahasa Indonesia bagi mahasiswa tercermin dalam tercermin dalam cara berpikir, cara menulis, cara berbicara,  cara berprilaku berbahasa Indonesia dalam konteks ilmiah dan akademis. Oleh karena itu, bahasa Indonesia masuk dalam kelompok mata kuliah pengembangan kepribadian mahasiswa, yang kelak sebagai insam terpelajar akan terjun ke dalam kancah kehidupan berbahasa dan bernegara sebagai pemimpin. Menulis ialah menurunkan atau melukiskan lambang-lambang grafik yang menggambarkan suatu bahasa  yang dipahami seseorang sehingga orang lain dapat membaca lambang-lambang grafik tersebut. Kalau mereka memahami bahasa dan lambang grafik tadi (Lado dalam Tarigan, 1983:21). Menulis bukan sekedar menggambar huruf-huruf, gambar huruf, tetapi ada pesan yang dibawa oleh penulis melalui gambar huruf-huruf tersebut yaitu karangan." },
+        { title: "Pengantar Ilmu Perpustakaan", author: "Sulistyo Basuki", year:  2022, sinopsis :"Buku Materi Pokok (BMP) PUST4101 Pengantar Ilmu Perpustakaan berisi tentang perkembangan dari penerapan teknologi dapat kita lihat dari adanya perkembangan jenis perpustakaan. Pada masa lalu, kita hanya mengenal perpustakaan yang bersifat manual, kemudian kita mengenal perpustakaan yang terotomasi, perpustakaan digital atau cyber library, dan yang terakhir adalah perpustakaan maya (virtual library). Sebagai mata kuliah yang didesain khusus untuk mahasiswa Universitas Terbuka, maka pada mata kuliah ini membahas konsep dasar informasi dan pustaka, asal usul perpustakaan, lembaga informasi, manajemen perpustakaan, katalogisasi dalam konteks, akses subjek, jasa perpustakaan, transformasi perpustakaan akibat perkembangan teknologi informasi, simpan dan temu kembali informasi dan perpustakaan dalam konteks sosial budaya, serta komunikasi ilmiah dan akses terbuka."},
+        { title : "Buku panduan edukasi obat oleh apoteker: mengenal profesi apoteker dan obat", author : "Made Ary Sarasmita",year : 2020, sinopsis:"Buku ini merupakan buku kedua penulis, setelah buku pertama berjudul Farmakologi Obat pada Obat Kehamilan dan Menyusui. Buku kedua ini mengandung materi panduan dan pembelajaran untuk Apoteker dalam memberikan edukasi kepada masyarakat, khususnya anak dan remaja. Buku ini juga dapat dibaca langsung oleh anak dan remaja disertai pendampingan oleh orangtua, apoteker atau tenaga kesehatan lainnya. Buku ini memuat informasi yang lengkap tentang mengenalkan profesi Apoteker, mengenalkan penggunaan obat yang baik dan benar, mengenalkan pola hidup sehat, termasuk cuci tangan, serta mengenalkan beberapa masalah dan solusi kesehatan yang sering dijumpai pada masyarakat, terutama populasi anak. Harapannya, buku ini dapat diterima dengan baik sebagai media edukasi baik secara mandiri ataupun berkelompok, dan dapat menjadi media untuk mengenalkan profesi Apoteker di mata masyarakat, mengenalkan penggunaan obat yang baik dan benar, sehingga secara tidak langsung dapat mewujudkan peran nyata Apoteker dan mewujudkan kemandirian masyarakat dalam hidup sehat untuk menyongsong Indonesia Sehat."},
+        {title : "Psikologi komunikasi", author : "Jalaludin Rakhmat.",year :2001, sinopsis:"Buku ini merupakan salah satu karya klasik Jalaluddin Rakhmat yang mendalami bagaimana psikologi manusia mempengaruhi cara kita berkomunikasi. Kang Jalal, sapaan akrab beliau, mengajak pembaca untuk memahami bahwa komunikasi bukan hanya sekadar tukar-menukar informasi, tetapi juga melibatkan aspek psikologis yang kompleks."},
+        {title : "Kesehatan Lingkungan", author : "Dr. H. Arif Sumantri, S.K.M., M.Kes.", year : 2017, sinopsis:"Hidup sehat merupakan interaksi empat faktor utama: lingkungan, perilaku individu dan masyarakat, pelayanan kesehatan, serta faktor bawaan (genetik). Bagaimana cara mencapai taraf hidup yang sehat melalui keseimbangan lingkungan dengan lingkungan hidup yang terencana, terorganisasi, dan yang dikelola secara baik dari semua faktor yang ada pada lingkungan fisik manusia. Dan, kajian ini telah menjadi studi otonom yang disebut Ilmu Kesehatan Lingkungan."},
+      ];
+
+
+    // Fungsi pencarian
+    $("#searchBtn").click(function() {
+        const searchTerm = $("#bookSearch").val().toLowerCase();
+        
+        const results = books.filter(book => 
+          book.title.toLowerCase().includes(searchTerm)
+        );
+
+        displayResults(results);
+      });
+
+      // Fungsi menampilkan hasil
+      function displayResults(results) {
+        const resultsDiv = $("#searchResults");
+        resultsDiv.empty();
+
+        if (results.length === 0) {
+          resultsDiv.html("<p>Tidak ada buku yang ditemukan</p>");
+          return;
+        }
+
+        results.forEach(book => {
+          resultsDiv.append(`
+            <div class="book-item">
+              <h4>${book.title}</h4>
+              <p>Penulis: ${book.author}</p>
+              <p>Tahun: ${book.year}</p>
+              <p>sinopsis: ${book.sinopsis}</P>
+            </div>
+          `);
+        });
+      }
+    });
+
+    let slider = document.getElementById('bookSlider');
+        let scrollAmount = 0;
+
+        function slideRight() {
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+            if (scrollAmount < maxScroll) {
+                scrollAmount += slider.querySelector('.book').clientWidth + 20;
+                slider.style.transform = `translateX(-${scrollAmount}px)`;
+            }
+        }
+
+        function slideLeft() {
+            if (scrollAmount > 0) {
+                scrollAmount -= slider.querySelector('.book').clientWidth + 20;
+                slider.style.transform = `translateX(-${scrollAmount}px)`;
+            }
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
